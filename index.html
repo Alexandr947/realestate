@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/font/manrope.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -20,19 +21,24 @@
 <body>
   
  
- <header>
+ <header id="header">
    <div class="my-container">
 
   <!--------------Header-UP--logo-navi--------------->
     <div class="header-row transform768">
-        <div class="logo">SmartSpace</div>
+        <a  href = "#header" class="logo">SmartSpace</a>
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <div class="gap-between"></div>
+        <div class="burger">   
+          <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        </div>
         <div class="navi-link">
-           <a href="">Home</a>
-           <a href="">About</a>
-           <a href="">Service</a>
-           <a href="">Portfolio</a>
-           <a href="">Blog</a>
-           <a href="">Contact</a> 
+           <a href="#header">Home</a>
+           <a href="#how-it-works">About</a>
+           <a href="#Best-deals">Best deals</a>
+           <a href="#Featured-Listing">Featured Listing</a>
+           <a href="#reviews">Reviews</a>
+           <a href="#footer">Contact</a> 
         </div>
     </div>
   <!--------------Header-MID-------------------id="imgposition"------------->
@@ -83,7 +89,7 @@
 
  <main>
   <!--------------how-it-works-------------------------------->
- <section class="how-it-works">
+ <section class="how-it-works" id="how-it-works">
    <div class="my-container">
      <div class="header-row">
         <h2>How it works?</h2>
@@ -138,7 +144,7 @@
  </section>
   <!----------------Best Real Estate Deals-------------------------->
 
- <section class="Best-deals">
+ <section class="Best-deals"  id="Best-deals">
 
   <div class="my-container">
     <div class="header-row deal-head-row">
@@ -204,7 +210,7 @@
 
 
    <!----------------Featured Listing-------------------------->
- <section class="Featured-Listing">
+ <section class="Featured-Listing"  id="Featured-Listing">
    <div class="my-container">
     <div class="header-row flist-head">
        <h2>Featured Listing of the Week</h2>
@@ -254,7 +260,7 @@
 
  <!----------------reviews-------------------------->
 
- <section class="reviews">
+ <section class="reviews" id="reviews">
   <div class="my-container">
     <div class="header-row reviews-head">
       <h2>Loved by businesses, and individuals across the globe.</h2>
@@ -345,7 +351,7 @@
  </main>
 
 
- <footer>
+ <footer id="footer">
   <div class="my-container">
     <div class="header-row transform768">
       <div class="logo">SmartSpace</div>
@@ -373,6 +379,19 @@
 
 
 
- <script src="js/bootstrap.bundle.min.js"></script> 
+ <script>
+  let side = document.querySelector(".side-menu");
+  let hamb = document.querySelector(".hamb");
+  let trans768 = document.querySelector(".transform768");
+  hamb.addEventListener("click", function() {
+    console.log(side.checked);
+    if(side.checked){
+      trans768.style.marginBottom = 30 + "px";
+    }else{
+      trans768.style.marginBottom = 130 + "px";
+
+    };
+  });
+ </script> 
 </body>
 </html>

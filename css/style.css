@@ -55,6 +55,10 @@
   padding: 0px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .my-container{
   margin-left: auto;
   margin-right: auto;
@@ -99,6 +103,7 @@ p{
   color: #31353B;
   font: 800 23px Manrope;
   text-align: left;
+  text-decoration: none;
  }
  
  .navi-link{
@@ -113,7 +118,7 @@ p{
  }
 
  .navi-link a:not(:last-child){
-  margin-right: 46px;
+  margin-right: 38px;
  }
 
  .navi-link a:hover{
@@ -142,8 +147,45 @@ p{
 .transform768{
     height: 31px;
     margin-bottom: 117px;
+    align-items: center;
+    position: relative;
 }
- 
+
+.hamb{
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.hamb-line {
+  background: transparent;
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+
+} /* Style span tag */
+
+.hamb-line::before,
+.hamb-line::after{
+  background: transparent;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+.hamb-line::before{
+  top: 5px;
+}
+.hamb-line::after{
+  top: -5px;
+}
+
+.side-menu{
+  display: none;
+}
+
 
 
 /*****Header**MID************/
@@ -177,7 +219,7 @@ header p{
   margin-top: 40px;
 }
 
-header input{
+header .inputwarp input{
  width: 100%;  
  height: 86px;
  border: 1px solid #DADADA; 
@@ -217,6 +259,10 @@ header .redbutton{
  line-height: 86px;
  z-index: 2;
  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.header-rightcol img{
+  max-width: 100%;
 }
 
 #arrow-left{
@@ -610,7 +656,7 @@ max-width: 570px;
 
 .review{
   display: block;
-  width: 370px ;
+  width: 314px ;
   border-radius: 10px;
   border: 1px solid #EBEBEB;
   text-decoration: none;
@@ -916,14 +962,59 @@ justify-content: center;
 
   .logo{
     text-align: center;
-    margin-bottom: 20px;
-   }
+  }
+
+
+  .transform768{
+    margin-bottom: 30px;
+  }
+
+  .gap-between{
+    flex-grow: 1;
+  }
+
+  .hamb-line::before, .hamb-line::after, .hamb-line{
+		background-color: #000;
+	}
+  
+  .side-menu:checked ~ .burger .hamb-line {
+		background: transparent;
+	}
+	.side-menu:checked ~ .burger .hamb-line::before {
+		transform: rotate(-45deg);
+		top:0;
+	}
+	.side-menu:checked ~ .burger .hamb-line::after {
+		transform: rotate(45deg);
+		top:0;
+	}
+
+
 
    .navi-link{
     text-align:center;
+    position: absolute;
+    display: none;
    }
+
+   .side-menu:checked ~ .navi-link{
+    display: block;
+    top: 37px;
+    right: 0px;
+    width: 150px;
+    text-align: left;
+
+   }
+
+
    .navi-link a{
     font-size: 18px;
+    display: block;
+    
+   }
+   .navi-link a:not(:last-child) {
+    margin-right: 0px;
+    margin-bottom: 5px;
    }
 
    
@@ -935,7 +1026,20 @@ justify-content: center;
 
   .inputwarp{
     width: 100%;
+    overflow: hidden;
   } 
+
+  header .inputwarp input{
+    width: 100%;  
+   
+   }
+   
+
+
+  header input::placeholder{
+    font: normal 14px Manrope;
+    color: rgba(49, 53, 59, .3);
+   }
 
   header .redbutton{
     height: 86px; 
@@ -943,9 +1047,7 @@ justify-content: center;
     position: static;
    }
 
-   .transform768{
-    flex-direction: column;
-   }
+   
 
   .header-leftcol, .header-rightcol{
     width: 100%;
@@ -954,6 +1056,7 @@ justify-content: center;
 
   .Transform-partners {
     justify-content: center;
+    
   }
 
   .Transform-partners  img{
@@ -963,6 +1066,10 @@ justify-content: center;
 
   header p{
     margin-right: 20px;
+  }
+
+  .how-it-works{
+    margin-bottom: 130px;
   }
 
   .how-it-works .header-row{
@@ -1001,6 +1108,13 @@ justify-content: center;
     margin-top: 70px;
   }
 
+
+
+
+
+
+
+
 .deal-head-row{
   flex-direction: column;
 }
@@ -1012,6 +1126,20 @@ justify-content: center;
 
 .deal-head-left p{
 margin-bottom: 20px;
+}
+
+.deal-pic-row{
+  
+  margin-bottom: 130px;
+  }
+
+.Featured-Listing  .flist-head{
+  margin-bottom: 35px;
+}
+
+.flist-body-right{
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 #flist-img-1{
@@ -1043,14 +1171,37 @@ margin-bottom: 20px;
 }
 
 .newsletter-input-wrap input{
-margin-bottom: 15px;
+ margin-bottom: 15px;
 }
 
 .newsletter-input-wrap .redbutton{
   width: auto;
   position: static;
-
   }
 
 }
 
+.review {
+  min-height: 260px;
+}
+.review-partners{
+  display: none;
+}
+
+.reviews-body{
+  margin-bottom: 0px;
+}
+
+
+.Newsletter{
+  padding-top: 100px;
+}
+
+.newsletter-input-wrap{
+  margin-bottom: 100px;
+}
+
+footer .transform768{
+  margin-bottom: 27px;
+  justify-content: center;
+}
